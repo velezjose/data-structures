@@ -22,6 +22,7 @@ var stackMethods = {
     }
 
     let val = this.storage[this.size() - 1];
+    this.storage[this.size() - 1] = undefined;
     this.storage.size--;
     return val;
   }, 
