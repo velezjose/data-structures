@@ -21,6 +21,7 @@ var Queue = function() {
     }
 
     let val = storage[storage.head];
+    storage[storage.head] = undefined;
     storage.size--;
     storage.head++;
     return val;
