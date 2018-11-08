@@ -23,21 +23,16 @@ treeMethods.contains = function(target) {
   var find = function(node) {
     if (node.value === target) {
       has = true;
-    } else if (node.children.length > 0) {
-      //for ()
-    }
-  };
+    } 
 
-  
-  if (this.value === target) {
-    return true;
-  } else if (this.children.length > 0) {
-    for (let i = 0; i < this.children.length; i++) {
-      this.children[i].contains(target);
+    if (node.children.length > 0) {
+      node.children.forEach(function(element) {
+        find(element);
+      });
     }
-  }
+  };  
 
-  
+  find(this);
 
   return has;
 };
