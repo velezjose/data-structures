@@ -41,4 +41,9 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  addChild - O(1) because the function is invoked on the target tree
+    and inserting a child to the target tree is also O(1)
+
+  contains - O(n) because we go through the entire tree to look for
+    target
  */
