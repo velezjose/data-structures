@@ -6,12 +6,45 @@ var BinarySearchTree = function(value) {
 };
 
 BinarySearchTree.prototype.insert = function(value) {
+  if (this.root.value === undefined) {
+    this.root.value = value;
+    return;
+
+  } else if (this.contains(value)) {
+    return;
+
+  } else {
+
+    let insertNode = new BinarySearchTree(value);
+
+    let node = this.root;
+    let direction;
+
+    if (node.value > value){
+      direction = 'left';
+    } else {
+      direction = 'right';
+    }
   
+
+    while (node.direction !== null) {
+      if (node.value > value) {
+        direction = 'left';
+      } else if (node.value < value) {
+        direction = 'right';
+      }
+    }
+
+    node.direction = insertNode;
+
+  }
+
+
 
 };
 
 BinarySearchTree.prototype.contains = function(value) {
-  if (this.root === undefined) {
+  if (this.root.value === undefined) {
     return false;
   }
 
