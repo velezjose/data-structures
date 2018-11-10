@@ -3,6 +3,8 @@ var BinarySearchTree = function(value) {
   obj.value = value;
   obj.left = null;
   obj.right = null;
+  obj.height = 0;
+  obj.parent = null;
   return obj;
 };
 
@@ -17,13 +19,7 @@ BinarySearchTree.prototype.insert = function(value) {
   } else {
     let insertNode = BinarySearchTree(value);
     let node = this;
-    // let direction;
 
-    // if (node.value > value){
-    //   direction = 'left';
-    // } else {
-    //   direction = 'right';
-    // }
   
     while (node) {
       if (node.value > value) {
@@ -90,6 +86,24 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
   runCallBack(this);
 };
 
+BinarySearchTree.prototype.breadthFirstLog = function(cb) {
+  
+  var array = [];
+  array.push(this);
+
+  while(array.length > 0) {
+    var node = array.shift();
+    cb(node.value);
+    if (node.left) {
+      array.push(node.left);
+    }
+    if (node.right) {
+      array.push(node.right);
+    }
+  }
+  
+};
+
 
 /*
 
@@ -100,4 +114,9 @@ A .contains() method, which accepts a value and returns a boolean reflecting whe
 A .depthFirstLog() 
 
  * Complexity: What is the time complexity of the above functions?
+ insert() - average case 0(log(h)), worst case 0(n), h is the height of the tree. 
+ contain() - average case 0(log(h)), worst case 0(n), h is the height of the tree. 
+ depthFirstLog/breadthFirstLog - 0(n)
+
+
  */
