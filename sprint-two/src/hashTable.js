@@ -33,10 +33,10 @@ HashTable.prototype.insert = function(k, v) {
   }
   //var capacity = this.size/this._limit
   //if (capacity > 0.75){
-    // this._limit *= 2;
-    // this._storage = LimitedArray(this._limit);
-    // for loop and rehash everything
-    // }
+  // this._limit *= 2;
+  // this._storage = LimitedArray(this._limit);
+  // for loop and rehash everything
+  // }
 };
 
 HashTable.prototype.retrieve = function(k) {
