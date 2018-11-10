@@ -1,54 +1,59 @@
 var BinarySearchTree = function(value) {
-  this.root = {};
-  this.root.value = value;
-  this.root.left = null;
-  this.root.right = null;
+  var obj = Object.create(BinarySearchTree.prototype);
+  obj.value = value;
+  obj.left = null;
+  obj.right = null;
+  return obj;
 };
 
 BinarySearchTree.prototype.insert = function(value) {
-  if (this.root.value === undefined) {
-    this.root.value = value;
+  if (this.value === undefined) {
+    this.value = value;
     return;
 
   } else if (this.contains(value)) {
     return;
 
   } else {
+    let insertNode = BinarySearchTree(value);
+    let node = this;
+    // let direction;
 
-    let insertNode = new BinarySearchTree(value);
-
-    let node = this.root;
-    let direction;
-
-    if (node.value > value){
-      direction = 'left';
-    } else {
-      direction = 'right';
-    }
+    // if (node.value > value){
+    //   direction = 'left';
+    // } else {
+    //   direction = 'right';
+    // }
   
-
-    while (node.direction !== null) {
+    while (node) {
       if (node.value > value) {
-        direction = 'left';
+        if (node.left) {
+          node = node.left;
+        } else {
+          node.left = insertNode;
+          break;
+        }
       } else if (node.value < value) {
-        direction = 'right';
+        if (node.right) {
+          node = node.right;
+        } else {
+          node.right = insertNode;
+          break;
+        }
       }
     }
 
-    node.direction = insertNode;
-
   }
-
-
 
 };
 
 BinarySearchTree.prototype.contains = function(value) {
-  if (this.root.value === undefined) {
+  if (this.value === undefined) {
     return false;
   }
 
-  let node = this.root;
+  let node = this;
+  console.log(node);
 
   while (node !== null) {
     if (node.value === value) {
