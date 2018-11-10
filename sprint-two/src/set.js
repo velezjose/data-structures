@@ -12,7 +12,6 @@ setPrototype.add = function(item) {
   }
   
   this._storage.push(item);
-  console.log('adding ' + item + ' :' + this._storage);
 };
 
 setPrototype.contains = function(item) {
