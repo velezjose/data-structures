@@ -68,4 +68,15 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should find the index of a given node in the Graph\'s nodes array', function() {
+    graph.addNode(4);
+    graph.addNode(5);
+    expect(graph.findNodeIndex(4)).to.equal(0);
+    expect(graph.findNodeIndex(5)).to.equal(1);
+    graph.removeNode(4);
+    expect(graph.findNodeIndex(5)).to.equal(0);
+  });
+  
+  
 });
