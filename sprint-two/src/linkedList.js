@@ -16,6 +16,19 @@ var LinkedList = function() {
     list.tail = n;    
   };
 
+  list.addToHead = function(value) {
+    let n = Node(value);
+
+    if (list.head === null) {
+      list.head = n;
+      list.tail = n;
+      return;
+    }
+    
+    n.next = head;
+    head = n;    
+  };
+
   list.removeHead = function() {
     let n = list.head;
     list.head = list.head.next;
