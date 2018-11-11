@@ -49,7 +49,6 @@ BinarySearchTree.prototype.contains = function(value) {
   }
 
   let node = this;
-  console.log(node);
 
   while (node !== null) {
     if (node.value === value) {
