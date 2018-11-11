@@ -41,7 +41,7 @@ treeMethods.breadthFirstLog = function(cb) {
   var array = [];
   array.push(this);
 
-  while(array.length > 0) {
+  while (array.length > 0) {
     var node = array.shift();
 
     if (node.value) {
