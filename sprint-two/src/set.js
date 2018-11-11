@@ -35,6 +35,20 @@ setPrototype.remove = function(item) {
   }
 };
 
+setPrototype.size = function() {
+  return this._storage.length;
+};
+
+setPrototype.isEmpty = function() {
+  return this._storage.length === 0;
+};
+
+setPrototype.iterate = function(cb) {
+  _.each(this._storage, function(item) {
+    cb(item);
+  });
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
   add - O(n) bcz we check if the item is contained in the Set

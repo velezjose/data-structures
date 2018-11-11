@@ -24,4 +24,25 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should return size of the set', function() {
+    set.add('Mel Gibson');
+    set.add('Shaquille O\'neill');
+    set.add('anything');
+    expect(set.size()).to.equal(3);
+  });
+
+  it('should return true when empty and false when not empty', function() {
+    set.add('Mel Gibson');
+    expect(set.isEmpty()).to.equal(false);
+    set.remove('Mel Gibson');
+    expect(set.isEmpty()).to.equal(true);
+  });
+
+  // todo
+  it('should iterate over the values of the set', function() {
+    var cb = function(value) { console.log(value); }
+    set.add(4);
+    expect(console.log.calledWith(4)).to.be.true;
+  });
+
 });
