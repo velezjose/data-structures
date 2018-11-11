@@ -36,6 +36,25 @@ treeMethods.contains = function(target) {
   return has;
 };
 
+treeMethods.breadthFirstLog = function(cb) {
+  
+  var array = [];
+  array.push(this);
+
+  while(array.length > 0) {
+    var node = array.shift();
+
+    if (node.value) {
+      cb(node.value);
+    }
+
+    if (node.children) {
+      node.children.forEach(function(element) {
+        array.push(element);
+      });
+    }
+  }
+};
 
 
 /*
